@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoFlo — Join Shared Account</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F0FAF4;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .logo { font-size: 64px; margin-bottom: 16px; }
+    .app-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #166534;
+      margin-bottom: 8px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1F2937;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: #6B7280;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .account-name {
+      background: #F0FAF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #166534;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 12px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: #166534;
+      color: #FFFFFF;
+    }
+    .btn-secondary {
+      background: #F3F4F6;
+      color: #374151;
+    }
+    .note {
+      font-size: 12px;
+      color: #9CA3AF;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">💰</div>
+    <div class="app-name">MoFlo</div>
+    <div class="title" id="invite-title">You've been invited!</div>
+    <div class="subtitle" id="invite-subtitle">
+      Join a shared account to manage finances together.
+    </div>
+    <div class="account-name" id="account-name">Loading...</div>
+    <a class="btn btn-primary" id="main-btn" href="#">Open in MoFlo</a>
+    <a class="btn btn-secondary" id="secondary-btn" href="#" style="display:none">
+      Download MoFlo
+    </a>
+    <div class="note" id="note"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const name = params.get('name');
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isMobile = isAndroid || isIOS;
+
+    const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.oskartech.moflo';
+    const APP_STORE = 'https://apps.apple.com/app/moflo/id000000000'; // update when iOS is live
+    const DEEP_LINK = `moflo://join?code=${code}&name=${encodeURIComponent(name || '')}`;
+
+    document.getElementById('account-name').textContent =
+      name ? `"${decodeURIComponent(name)}"` : 'Shared Account';
+
+    if (code) {
+      if (isMobile) {
+        // Intenta abrir la app primero
+        document.getElementById('main-btn').href = DEEP_LINK;
+        document.getElementById('main-btn').textContent = 'Open in MoFlo';
+
+        // Muestra botón de descarga como fallback
+        document.getElementById('secondary-btn').style.display = 'block';
+        document.getElementById('secondary-btn').href = isAndroid ? PLAY_STORE : APP_STORE;
+        document.getElementById('secondary-btn').textContent = isAndroid
+          ? 'Download on Google Play'
+          : 'Download on App Store';
+
+        document.getElementById('note').textContent =
+          'If MoFlo is not installed, download it first. You will need MoFlo Premium to join a shared account.';
+      } else {
+        // Desktop — solo muestra Play Store
+        document.getElementById('main-btn').href = PLAY_STORE;
+        document.getElementById('main-btn').textContent = 'Get MoFlo on Google Play';
+        document.getElementById('note').textContent =
+          'MoFlo is available on Android and iOS. Open this link on your mobile device.';
+      }
+    } else {
+      document.getElementById('invite-title').textContent = 'Invalid invite link';
+      document.getElementById('invite-subtitle').textContent =
+        'This invite link is invalid or has expired.';
+      document.getElementById('account-name').textContent = '❌';
+      document.getElementById('main-btn').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
