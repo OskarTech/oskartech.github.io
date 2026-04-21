@@ -1,115 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soporte - MoFlo</title>
-    <style>
-        :root {
-            --primary: #3b82f6;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background-color: white;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        h1 { color: var(--dark); margin-bottom: 10px; }
-        .subtitle { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
-        
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-        }
-        h2 { border-left: 4px solid var(--primary); padding-left: 15px; color: var(--dark); }
-        
-        .faq-item { margin-bottom: 25px; }
-        .faq-item h3 { margin-bottom: 10px; font-size: 1.1rem; color: var(--dark); }
-        
-        .contact-btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: opacity 0.2s;
-        }
-        .contact-btn:hover { opacity: 0.9; }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-        footer a { color: var(--primary); text-decoration: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoFlo — Soporte Técnico</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F9FAFB;
+      color: #1F2937;
+      padding: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .header {
+      background: #166534;
+      color: white;
+      padding: 32px;
+      border-radius: 16px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .header h1 { font-size: 28px; margin-bottom: 8px; }
+    .header p { opacity: 0.8; font-size: 14px; }
+    h2 {
+      font-size: 18px;
+      color: #166534;
+      margin: 28px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #D1FAE5;
+    }
+    p { margin-bottom: 12px; font-size: 15px; }
+    ul { margin: 8px 0 16px 20px; }
+    li { margin-bottom: 6px; font-size: 15px; }
+    a { color: #166534; font-weight: 600; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      border: 1px solid #E5E7EB;
+    }
+    .btn {
+      display: inline-block;
+      background: #166534;
+      color: white !important;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none !important;
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: #9CA3AF;
+    }
+  </style>
 </head>
 <body>
+  <div class="header">
+    <h1>💰 MoFlo</h1>
+    <h2 style="color:white; border:none; margin:0;">Centro de Soporte</h2>
+    <p>Estamos aquí para ayudarte</p>
+  </div>
 
-<header>
-    <div class="container">
-        <h1>Centro de Soporte MoFlo</h1>
-        <p class="subtitle">Estamos aquí para ayudarte a controlar tus finanzas</p>
-    </div>
-</header>
+  <div class="card">
+    <p>En <strong>OskarTech</strong> queremos que tu experiencia con <strong>MoFlo</strong> sea perfecta. Si tienes problemas técnicos, dudas sobre las funciones Premium o sugerencias, consulta nuestras preguntas frecuentes o contáctanos directamente.</p>
+  </div>
 
-<div class="container">
-    <div class="card">
-        <h2>Preguntas Frecuentes (FAQ)</h2>
-        
-        <div class="faq-item">
-            <h3>¿Cómo restauro mi compra Premium?</h3>
-            <p>Si has cambiado de dispositivo o has reinstalado la app, ve a los Ajustes de la app y pulsa en el botón "Restaurar Compras". El sistema detectará automáticamente tu licencia de por vida.</p>
-        </div>
+  <h2>Preguntas Frecuentes (FAQ)</h2>
+  
+  <div class="card">
+    <p><strong>¿Cómo restauro mi compra Premium?</strong><br>
+    Si has cambiado de móvil o reinstalado la app, ve a los Ajustes de MoFlo y pulsa en "Restaurar Compras". Si usas la misma ID de Apple/Google, se activará automáticamente sin coste extra.</p>
+  </div>
 
-        <div class="faq-item">
-            <h3>¿Mis datos financieros están seguros?</h3>
-            <p>Sí. MoFlo prioriza la privacidad. Los datos se gestionan de forma local y a través de tu cuenta personal vinculada de forma segura.</p>
-        </div>
+  <div class="card">
+    <p><strong>¿Mis datos financieros están seguros?</strong><br>
+    Absolutamente. MoFlo utiliza Google Firebase con reglas de seguridad estrictas. Solo tú (y las personas con las que decidas compartir tu cuenta) podéis ver vuestros datos.</p>
+  </div>
 
-        <div class="faq-item">
-            <h3>¿Cómo puedo exportar mis datos?</h3>
-            <p>La función de exportación a CSV está disponible para usuarios Premium. Puedes encontrarla dentro de la sección de Ajustes o en el resumen detallado de tus movimientos.</p>
-        </div>
-    </div>
+  <div class="card">
+    <p><strong>¿Cómo exporto mis datos a CSV?</strong><br>
+    Esta es una función Premium. Puedes realizar la exportación desde la pantalla de resumen anual o desde los ajustes de la aplicación.</p>
+  </div>
 
-    <div class="card">
-        <h2>¿Necesitas más ayuda?</h2>
-        <p>Si tienes cualquier problema técnico, duda o sugerencia para mejorar MoFlo, no dudes en contactarnos directamente por correo electrónico.</p>
-        <a href="mailto:oskar_cambrils@hotmail.com" class="contact-btn">Contactar Soporte</a>
-    </div>
+  <h2>Contacto Directo</h2>
+  <p>Si no has encontrado la solución a tu problema, envíanos un correo electrónico y te responderemos en menos de 48 horas.</p>
+  <a href="mailto:oskartech.dev@gmail.com" class="btn">✉️ Contactar Soporte</a>
 
-    <footer>
-        <p>&copy; 2026 MoFlo - Desarrollado por Oskar Grochowski</p>
-        <p>
-            <a href="privacy.html">Política de Privacidad</a> | 
-            <a href="terms.html">Términos de Uso</a>
-        </p>
-    </footer>
-</div>
-
+  <div class="footer">
+    <p>© 2026 OskarTech · MoFlo · <a href="privacy.html">Privacidad</a> · <a href="terms.html">Términos</a></p>
+  </div>
 </body>
 </html>
